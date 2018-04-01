@@ -1,0 +1,44 @@
+POST '/account': username STRING, password STRING
+Create an account (recommend hashing password at client side with SHA256 just for added security. It is also salted and hashed on server before storing.)
+
+POST '/login': username STRING, password STRING
+Login with username and password
+
+POST ‘/friend-request’: friendId STRING
+Send a user a friend request
+
+GET ‘/friend-request’
+Get list of friend requests
+
+DELETE ‘/friend-request’
+Delete the friend request (essentially rejecti friend request)
+
+GET ‘/friend’
+List friends
+
+POST ‘/friend’: friendId: friendId STRING
+Add friend (must have valid friend request)
+
+DELETE ‘/friend/:friendId’
+Delete a friend  
+
+GET ‘/set’
+Get a list of sets
+
+ GET ‘/set/:setId/friend’
+Get a list of friends who collect that set with some basic metrics
+
+GET ‘/set/:setId/friend/:friendId/swap’
+Get the swaps of the given set for the given friend. Lists both got and need
+
+GET ‘/set/:setId/subset’
+Get subsets for given set
+
+GET ‘/set/:setId/subset/:subsetId/item’
+Get items within a given subset has some metrics attached to it
+
+GET ‘/set/:setId/item/:itemNumber/swap’
+Get swaps for a given item in a set. Will have a list of friends who have swaps and a list of friends who need
+
+PUT '/set/:setId/item/:itemNumber’: have INTEGER, want INTEGER
+Update the number the user wants and need of an item. (Probably don’t allow user to edit the want count in v1 just always have it as 1.
