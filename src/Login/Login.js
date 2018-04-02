@@ -96,7 +96,7 @@ export default class Login extends Component {
           <ActivityIndicator size="large" />
         ) : (
           <Button
-            color="darkslateblue"
+            color="#1A237E"
             onPress={this.handleLogin}
             title="Login"
             disabled={!this.isSubmittable()}
