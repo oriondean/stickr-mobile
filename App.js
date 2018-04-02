@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import Login from "./src/Login";
+import SetViewer from "./src/SetViewer";
 
 const styles = StyleSheet.create({
   container: {
@@ -35,7 +36,7 @@ export default class App extends Component {
         {!isLoggedIn ? (
           <Login onLoginSuccess={this.handleLoginSuccess} />
         ) : (
-          <Text>Hello World</Text>
+          <SetViewer />
         )}
       </View>
     );
